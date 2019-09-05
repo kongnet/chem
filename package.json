@@ -1,0 +1,35 @@
+{
+  "name": "chem",
+  "version": "0.1.0",
+  "description": "Simple Chemical Equation Balancing",
+  "main": "chem.js",
+  "scripts": {
+    "test": "mocha chem_test.js",
+    "cz": "conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
+    "push": "npm version patch && npm publish . && git push"
+  },
+  "keywords": [
+    "Chemical",
+    "Equation",
+    "Balancing"
+  ],
+  "author": "9601698@qq.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kongnet/chem.git"
+  },
+  "devDependencies": {
+    "conventional-changelog": "^3.1.10",
+    "cz-jt": "^0.1.11",
+    "mocha": "^6.2.0"
+  },
+  "dependencies": {
+    "meeko": "^1.8.10"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-jt"
+    }
+  }
+}
