@@ -14,7 +14,7 @@ A friend's kid goes to high school to give him a **Chemical Equation Balancing**
 ## Use
 
 ``` javascript
-let balanceEq = require('chem')
+let balanceEq = require('chem-eb')
 console.log(balanceEq('P+O2=P2O5'))
 ```
 

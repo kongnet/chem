@@ -1,5 +1,5 @@
 {
-  "name": "chem",
+  "name": "chem-eb",
   "version": "0.1.1",
   "description": "Simple Chemical Equation Balancing",
   "main": "chem.js",
