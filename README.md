@@ -1,7 +1,7 @@
 # Sky chem
 ![chemLogo](https://github.com/kongnet/chem/raw/master/screenShot/chem_test.png)
 
-A friend's kid goes to high school to give him a **Chemical Equation Balancing** code
+A friend's kid is going to high school. I wrote a **Chemical Equation Balancing** code for him.
 
 ## Install
 
