@@ -1,11 +1,12 @@
 # Sky chem
+
 ![chemLogo](https://github.com/kongnet/chem/raw/master/screenShot/chem_test.png)
 
 A friend's kid is going to high school. I wrote a **Chemical Equation Balancing** code for him.
 
 ## Install
 
-    npm i chem
+    npm i chem-eb
 
 ## Test
 
@@ -13,16 +14,16 @@ A friend's kid is going to high school. I wrote a **Chemical Equation Balancing*
 
 ## Use
 
-``` javascript
+```javascript
 let balanceEq = require('chem-eb')
 console.log(balanceEq('P+O2=P2O5'))
 ```
 
-## NOTICE: 
+## NOTICE:
 
-*when (OH)2  pls O2H2 input*
+_when (OH)2 pls O2H2 input_
 
-## TODO: 
+## TODO:
 
-* Same proportion in Matrix
-* Chemical functional groups unfold 
+- Same proportion in Matrix
+- Chemical functional groups unfold

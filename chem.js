@@ -190,15 +190,17 @@ function balanceEq (chemStr) {
         })
       ) {
         let newEqArr = []
+        let ratio
         for (let i = 0; i < m.leftLen + m.rightLen; i++) {
+          ratio = rst[i].round(0)
           if (i < m.leftLen) {
-            m.leftEqArrColor[i] = $.c.y(rst[i].round(0)) + m.leftEqArr[i]
-            m.leftEqArr[i] = rst[i].round(0) + m.leftEqArr[i]
+            m.leftEqArrColor[i] = $.c.y(ratio) + m.leftEqArr[i]
+            m.leftEqArr[i] = (ratio === 1 ? '' : ratio) + m.leftEqArr[i]
           } else {
             m.rightEqArrColor[i - m.leftLen] =
-              $.c.y(rst[i].round(0)) + m.rightEqArr[i - m.leftLen]
+              $.c.y(ratio) + m.rightEqArr[i - m.leftLen]
             m.rightEqArr[i - m.leftLen] =
-              rst[i].round(0) + m.rightEqArr[i - m.leftLen]
+              (ratio === 1 ? '' : ratio) + m.rightEqArr[i - m.leftLen]
           }
         }
         let outChemColorStr =
@@ -214,6 +216,7 @@ function balanceEq (chemStr) {
     }
     return { oriChem: chemStr, outChem: '', outChemCol: '' }
   } catch (e) {
+    //TODO: 增加错误原因
     return { oriChem: chemStr, outChem: '', outChemCol: '' }
   }
 }

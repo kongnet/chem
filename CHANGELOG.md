@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/kongnet/chem/compare/v0.1.3...v0.1.4) (2020-03-20)
+
+
+### :sparkles:
+
+* 做一些容错 ([3b76993](https://github.com/kongnet/chem/commit/3b76993a826b0b1b1f9222cc95c9de5bd2b7ec79))
+
+
+
 ## [0.1.3](https://github.com/kongnet/chem/compare/v0.1.2...v0.1.3) (2019-11-03)
 
 
