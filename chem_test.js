@@ -2,7 +2,9 @@ let $ = require('meeko')
 let balanceEq = require('./chem.js')
 
 let assert = require('assert')
+/*
 
+*/
 let chemTestArr = [
   'HCOOH + AgNO3 + NH3 = Ag + NH4NO3 + CO2',
   'HCOOH + 2AgNO3 + 2NH3 = 2Ag + 2NH4NO3 + CO2',
@@ -64,6 +66,9 @@ let chemTestArr = [
   'FeS2+O2=SO2+Fe2O3',
   '4FeS2+11O2=8SO2+2Fe2O3',
   '',
+  'Fe2S3O12+NaOH=Na2SO4+FeO3H3',
+  'Fe2S3O12 + 6NaOH = 3Na2SO4 + 2FeO3H3',
+  '',
   'A',
   '',
   '',
@@ -76,6 +81,7 @@ for (let i = 0; i < chemTestArr.length; i += 3) {
   let inStr = chemTestArr[i + 0]
   let outStr = chemTestArr[i + 1]
   let chem = balanceEq(inStr)
+  console.log(chem)
   describe(`${inStr}`, function () {
     it(`${inStr} => ${chem.outChemCol || chemTestArr[i + 2]}`, function () {
       assert.strictEqual(

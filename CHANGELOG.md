@@ -1,3 +1,12 @@
+## [0.1.5](https://github.com/kongnet/chem/compare/v0.1.4...v0.1.5) (2020-03-20)
+
+
+### :white_check_mark:
+
+* 增加代码覆盖100% ([97bdc2f](https://github.com/kongnet/chem/commit/97bdc2fb8b48f45d4946f4b5e062ff5502f482cb))
+
+
+
 ## [0.1.4](https://github.com/kongnet/chem/compare/v0.1.3...v0.1.4) (2020-03-20)
 
 

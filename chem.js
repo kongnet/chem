@@ -121,6 +121,36 @@ let chemSymbol = [
   'Og'
 ]
 
+function transpose (arr) {
+  //矩阵转置
+  const a = []
+  for (let i = 0; i < arr[0].length; i++) {
+    a[i] = []
+  }
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      a[j][i] = arr[i][j]
+    }
+  }
+  return a
+}
+
+function mut (a, b) {
+  //矩阵乘法
+  let len = a.length,
+    arr = []
+  for (let i = 0; i < len; i++) {
+    arr[i] = []
+    for (let j = 0; j < len; j++) {
+      arr[i][j] = 0
+      for (let k = 0; k < len; k++) {
+        arr[i][j] += a[i][k] * b[k][j]
+      }
+    }
+  }
+  return arr
+}
+
 function chemEq2Matrix (chemStr) {
   let eqArr = chemStr.replace(/ +/g, '').split('=')
   let leftEqArr = eqArr[0].split('+')
@@ -143,6 +173,7 @@ function chemEq2Matrix (chemStr) {
       if (isElm.length > 0) {
         let sum = $.math.sum(isElm.map(x => +x.replace(chemElm, '') || 1))
         rowArr[idx] = (idx >= leftLen ? -1 : 1) * sum
+        console.log(chemElm, sum, rowArr[idx])
         chemElmObj[chemElm] = 1
       } else {
         rowArr[idx] = 0
@@ -155,6 +186,18 @@ function chemEq2Matrix (chemStr) {
     }
   }
   if (matrix[0].length <= matrix.length) {
+    //解决超定方程
+    matrix.remove(0)
+    for (let i = 0; i < matrix.length; i++) {
+      matrix[i].remove(matrix[i].length - 1)
+    }
+    matrix = mut(transpose(matrix), matrix)
+    for (let i = 0; i < matrix.length; i++) {
+      matrix[i].push(0)
+    }
+    matrix.unshift([1, ...Array(leftLen + rightLen).fill(0)]) //重新填入值
+    //解决超定方程
+
     // 方程组大于未知数 移除有第一个主元的一行
     for (let i = 1; i < matrix.length; i++) {
       if (matrix[i][0]) {
@@ -177,6 +220,7 @@ function balanceEq (chemStr) {
   try {
     // render formula
     let m = chemEq2Matrix(chemStr)
+    console.log(m)
     m.leftEqArrColor = []
     m.rightEqArrColor = []
     let pos = m.matrix[0].length - 1
