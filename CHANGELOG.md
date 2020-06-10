@@ -1,3 +1,12 @@
+## [0.1.9](https://github.com/kongnet/chem/compare/v0.1.8...v0.1.9) (2020-06-10)
+
+
+### :zap:
+
+* 矩阵转置和乘法改为meeko核心库 ([3983401](https://github.com/kongnet/chem/commit/398340167c860eeed7f252249af1e89494985449))
+
+
+
 ## [0.1.8](https://github.com/kongnet/chem/compare/v0.1.7...v0.1.8) (2020-03-24)
 
 
