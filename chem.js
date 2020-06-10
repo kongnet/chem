@@ -121,36 +121,6 @@ let chemSymbol = [
   'Og'
 ]
 
-function transpose (arr) {
-  //矩阵转置
-  const a = []
-  for (let i = 0; i < arr[0].length; i++) {
-    a[i] = []
-  }
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
-      a[j][i] = arr[i][j]
-    }
-  }
-  return a
-}
-
-function mut (a, b) {
-  //矩阵乘法
-  let len = a.length,
-    arr = []
-  for (let i = 0; i < len; i++) {
-    arr[i] = []
-    for (let j = 0; j < len; j++) {
-      arr[i][j] = 0
-      for (let k = 0; k < len; k++) {
-        arr[i][j] += a[i][k] * b[k][j]
-      }
-    }
-  }
-  return arr
-}
-
 function chemEq2Matrix (chemStr) {
   let eqArr = chemStr.replace(/ +/g, '').split('=')
   let leftEqArr = eqArr[0].split('+')
@@ -191,7 +161,7 @@ function chemEq2Matrix (chemStr) {
     for (let i = 0; i < matrix.length; i++) {
       matrix[i].remove(matrix[i].length - 1)
     }
-    matrix = mut(transpose(matrix), matrix)
+    matrix = $.math.mat.mul($.math.mat.transpose(matrix), matrix)
     for (let i = 0; i < matrix.length; i++) {
       matrix[i].push(0)
     }

@@ -27,7 +27,7 @@
     "nyc": "^15.0.0"
   },
   "dependencies": {
-    "meeko": "^1.8.10"
+    "meeko": "*"
   },
   "config": {
     "commitizen": {

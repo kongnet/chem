@@ -1,3 +1,22 @@
+## [0.1.8](https://github.com/kongnet/chem/compare/v0.1.7...v0.1.8) (2020-03-24)
+
+
+
+
+## [0.1.7](https://github.com/kongnet/chem/compare/v0.1.6...v0.1.7) (2020-03-24)
+
+
+
+
+## [0.1.6](https://github.com/kongnet/chem/compare/v0.1.5...v0.1.6) (2020-03-24)
+
+
+### :bug:
+
+* (增加超定方程解法) ([58c50e7](https://github.com/kongnet/chem/commit/58c50e79b16a8051fdd0086788a4bbaca5b65f61))
+
+
+
 ## [0.1.5](https://github.com/kongnet/chem/compare/v0.1.4...v0.1.5) (2020-03-20)
 
 
