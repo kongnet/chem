@@ -1,3 +1,12 @@
+## [0.1.11](https://github.com/kongnet/chem/compare/v0.1.10...v0.1.11) (2020-06-10)
+
+
+### :white_check_mark:
+
+* 覆盖率100% ([92a1379](https://github.com/kongnet/chem/commit/92a137918f8630c606473ea1fadb161398409607))
+
+
+
 ## [0.1.10](https://github.com/kongnet/chem/compare/v0.1.9...v0.1.10) (2020-06-10)
 
 
