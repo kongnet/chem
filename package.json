@@ -23,7 +23,7 @@
   "devDependencies": {
     "conventional-changelog": "^3.1.10",
     "cz-jt": "^0.1.11",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "nyc": "^15.0.0"
   },
   "dependencies": {
