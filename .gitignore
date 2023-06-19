@@ -38,7 +38,7 @@ www/markdown/_sidebar.md
 www/markdown/history.md
 
 www/img/*
-
+package-lock.json
 .scannerwork
 jtFrontCheck.html
 jtFrontEasyCheck.html
