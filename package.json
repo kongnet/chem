@@ -1,6 +1,6 @@
 {
   "name": "chem-eb",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Simple Chemical Equation Balancing",
   "main": "chem.js",
   "scripts": {
