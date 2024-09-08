@@ -1,3 +1,12 @@
+## [0.1.16](https://github.com/kongnet/chem/compare/v0.1.15...v0.1.16) (2024-09-08)
+
+
+### :sparkles:
+
+* Chemical functional groups unfold ([b46d4d4](https://github.com/kongnet/chem/commit/b46d4d49506b175fb99932b50b6cf1084d3fb03f))
+
+
+
 ## [0.1.15](https://github.com/kongnet/chem/compare/v0.1.14...v0.1.15) (2023-06-19)
 
 

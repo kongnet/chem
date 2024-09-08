@@ -92,7 +92,5 @@ for (let i = 0; i < chemTestArr.length; i += 3) {
   })
 }
 
-// console.log(balanceEq('Cu + HNO3 -> Cu(NO3)2 + NO2 + H2O'))
-// console.log(
-//   balanceEq('K2Cr2O7 + H2SO4 + C2H5OH - K2SO4 + Cr2(SO4)3 + H2O + CH3COOH')
-// )
+console.log(balanceEq('P+O2=P2O5'))
+console.log(balanceEq('Fe2S3O12+NaOH=Na2SO4+FeO3H3'))
