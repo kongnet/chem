@@ -8,25 +8,25 @@ const assert = require('assert')
 const chemTestArr = [
   'HCOOH + AgNO3 + NH3 = Ag + NH4NO3 + CO2',
   'HCOOH + 2AgNO3 + 2NH3 = 2Ag + 2NH4NO3 + CO2',
-  '出错了',
+  'equation error',
   'P4O10 + H2O = H3PO4',
   'P4O10 + 6H2O = 4H3PO4',
-  '出错了',
-  'Ji + O2 = Ji2O',
+  'equation error',
+  'Ji + O2 = JiO2',
   '',
-  '元素不存在',
+  'element is not exist',
   'Mg+HNO3=MgN2O6+NH4NO3+H2O',
   '4Mg + 10HNO3=4MgN2O6 + NH4NO3 + 3H2O',
-  '出错了',
+  'equation error',
   'FeS+KMnO4+H2SO4=K2SO4+MnSO4+Fe2S3O12+H2O',
   '10FeS + 18KMnO4 + 32H2SO4=9K2SO4 + 18MnSO4 + 5Fe2S3O12 + 32H2O',
-  '出错了',
+  'equation error',
   'Fe+H2O=Fe3O4+H2',
   '3Fe + 4H2O = Fe3O4 + 4H2',
-  '出错了',
+  'equation error',
   'P+O2=P2O5',
   '4P + 5O2 = 2P2O5',
-  '出错了',
+  'equation error',
   'NH4NO3=N2+O2+H2O',
   '2NH4NO3=2N2+O2+4H2O',
   '',
@@ -81,7 +81,6 @@ for (let i = 0; i < chemTestArr.length; i += 3) {
   const inStr = chemTestArr[i + 0]
   const outStr = chemTestArr[i + 1]
   const chem = balanceEq(inStr)
-  console.log(chem)
   describe(`${inStr}`, function () {
     it(`${inStr} => ${chem.outChemCol || chemTestArr[i + 2]}`, function () {
       assert.strictEqual(
@@ -92,3 +91,8 @@ for (let i = 0; i < chemTestArr.length; i += 3) {
     })
   })
 }
+
+// console.log(balanceEq('Cu + HNO3 -> Cu(NO3)2 + NO2 + H2O'))
+// console.log(
+//   balanceEq('K2Cr2O7 + H2SO4 + C2H5OH - K2SO4 + Cr2(SO4)3 + H2O + CH3COOH')
+// )

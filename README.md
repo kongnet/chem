@@ -17,14 +17,20 @@ A friend's kid is going to high school. I wrote a **Chemical Equation Balancing*
 ```javascript
 let balanceEq = require('chem-eb')
 console.log(balanceEq('P+O2=P2O5'))
-console.log(balanceEq('Fe2S3O12+NaOH=Na2SO4+FeO3H3')) // 会用到超定方程求解
+console.log(balanceEq('Fe2S3O12+NaOH=Na2SO4+FeO3H3')) // over-determined equation 会用到超定方程求解
+
+console.log(balanceEq('Ca + NO3 -> Ca(NO3)2')) //  Ca + 2NO3 = Ca(NO3)2
+console.log(balanceEq('Fe + Cl -> FeCl3')) // Fe + 3Cl = FeCl3
+console.log(
+  balanceEq('K2Cr2O7 + H2SO4 + C2H5OH -> K2SO4 + Cr2(SO4)3 + H2O + CH3COOH') //2K2Cr2O7 + 8H2SO4 + 3C2H5OH = 2K2SO4 + 2Cr2(SO4)3 + 11H2O + 3CH3COOH
+)
 ```
 
 ## NOTICE:
 
-_when (OH)2 pls O2H2 input_
+~~when (OH)2 pls O2H2 input~~
 
 ## TODO:
 
 - ~~over-determined equation~~
-- Chemical functional groups unfold
+- ~~Chemical functional groups unfold~~

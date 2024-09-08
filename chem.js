@@ -1,132 +1,30 @@
 let $ = require('meeko')
 
-let chemSymbol = [
-  'H',
-  'He',
-  'Li',
-  'Be',
-  'B',
-  'C',
-  'N',
-  'O',
-  'F',
-  'Ne',
-  'Na',
-  'Mg',
-  'Al',
-  'Si',
-  'P',
-  'S',
-  'Cl',
-  'Ar',
-  'K',
-  'Ca',
-  'Sc',
-  'Ti',
-  'V',
-  'Cr',
-  'Mn',
-  'Fe',
-  'Co',
-  'Ni',
-  'Cu',
-  'Zn',
-  'Ga',
-  'Ge',
-  'As',
-  'Se',
-  'Br',
-  'Kr',
-  'Rb',
-  'Sr',
-  'Y',
-  'Zr',
-  'Nb',
-  'Mo',
-  'Tc',
-  'Ru',
-  'Rh',
-  'Pd',
-  'Ag',
-  'Cd',
-  'In',
-  'Sn',
-  'Sb',
-  'Te',
-  'I',
-  'Xe',
-  'Cs',
-  'Ba',
-  'La',
-  'Ce',
-  'Pr',
-  'Nd',
-  'Pm',
-  'Sm',
-  'Eu',
-  'Gd',
-  'Tb',
-  'Dy',
-  'Ho',
-  'Er',
-  'Tm',
-  'Yb',
-  'Lu',
-  'Hf',
-  'Ta',
-  'W',
-  'Re',
-  'Os',
-  'Ir',
-  'Pt',
-  'Au',
-  'Hg',
-  'Tl',
-  'Pb',
-  'Bi',
-  'Po',
-  'At',
-  'Rn',
-  'Fr',
-  'Ra',
-  'Ac',
-  'Th',
-  'Pa',
-  'U',
-  'Np',
-  'Pu',
-  'Am',
-  'Cm',
-  'Bk',
-  'Cf',
-  'Es',
-  'Fm',
-  'Md',
-  'No',
-  'Lr',
-  'Rf',
-  'Db',
-  'Sg',
-  'Bh',
-  'Hs',
-  'Mt',
-  'Ds',
-  'Rg',
-  'Cn',
-  'Nh',
-  'Fl',
-  'Mc',
-  'Lv',
-  'Ts',
-  'Og'
-]
-
+let chemSymbol =
+  'H,He,Li,Be,B,C,N,O,F,Ne,Na,Mg,Al,Si,P,S,Cl,Ar,K,Ca,Sc,Ti,V,Cr,Mn,Fe,Co,Ni,Cu,Zn,Ga,Ge,As,Se,Br,Kr,Rb,Sr,Y,Zr,Nb,Mo,Tc,Ru,Rh,Pd,Ag,Cd,In,Sn,Sb,Te,I,Xe,Cs,Ba,La,Ce,Pr,Nd,Pm,Sm,Eu,Gd,Tb,Dy,Ho,Er,Tm,Yb,Lu,Hf,Ta,W,Re,Os,Ir,Pt,Au,Hg,Tl,Pb,Bi,Po,At,Rn,Fr,Ra,Ac,Th,Pa,U,Np,Pu,Am,Cm,Bk,Cf,Es,Fm,Md,No,Lr,Rf,Db,Sg,Bh,Hs,Mt,Ds,Rg,Cn,Nh,Fl,Mc,Lv,Ts,Og'.split(
+    ','
+  )
+function expandElm (elm) {
+  const regex = /\(([^)]+)\)(\d*)/
+  return elm
+    .replace(regex, (match, group, count) => {
+      count = +count || 1 // default 1
+      return group.repeat(count)
+    })
+    .replace(/\(|\)/g, '') // remove '(' ,')'
+}
 function chemEq2Matrix (chemStr) {
-  let eqArr = chemStr.replace(/ +/g, '').split('=')
-  let leftEqArr = eqArr[0].split('+')
-  let rightEqArr = eqArr[1].split('+')
-  let chemElmObj = {} // 有哪些元素
+  let eqArr = chemStr.replace(/ +/g, '').split(/(\->|=|\-)/g)
+  // console.log(eqArr)
+  let leftEqArrOri = eqArr[0].split('+') // unexpand element
+  let rightEqArrOri = eqArr[2].split('+')
+
+  let leftEqArr = leftEqArrOri.map(x => expandElm(x))
+  let rightEqArr = rightEqArrOri.map(x => expandElm(x))
+
+  let chemElmObj = {} // element inside 有哪些元素
   eqArr = [...leftEqArr, ...rightEqArr]
+  // console.log(leftEqArr, rightEqArr)
   let len = chemSymbol.length
   let leftLen = leftEqArr.length
   let rightLen = rightEqArr.length
@@ -143,7 +41,7 @@ function chemEq2Matrix (chemStr) {
       if (isElm.length > 0) {
         let sum = $.math.sum(isElm.map(x => +x.replace(chemElm, '') || 1))
         rowArr[idx] = (idx >= leftLen ? -1 : 1) * sum
-        console.log(chemElm, sum, rowArr[idx])
+        //console.log(chemElm, sum, rowArr[idx])
         chemElmObj[chemElm] = 1
       } else {
         rowArr[idx] = 0
@@ -156,7 +54,7 @@ function chemEq2Matrix (chemStr) {
     }
   }
   if (matrix[0].length <= matrix.length) {
-    //解决超定方程
+    //over-determined equation 解决超定方程
     matrix.remove(0)
     for (let i = 0; i < matrix.length; i++) {
       matrix[i].remove(matrix[i].length - 1)
@@ -176,13 +74,16 @@ function chemEq2Matrix (chemStr) {
       }
     }
   }
+
   return {
-    matrix: matrix,
-    leftEqArr: leftEqArr,
-    rightEqArr: rightEqArr,
-    leftLen: leftLen,
-    rightLen: rightLen,
-    chemElmObj: chemElmObj
+    matrix,
+    leftEqArr,
+    rightEqArr,
+    leftEqArrOri,
+    rightEqArrOri,
+    leftLen,
+    rightLen,
+    chemElmObj
   }
 }
 
@@ -190,7 +91,7 @@ function balanceEq (chemStr) {
   try {
     // render formula
     let m = chemEq2Matrix(chemStr)
-    console.log(m)
+    // console.log(m)
     m.leftEqArrColor = []
     m.rightEqArrColor = []
     let pos = m.matrix[0].length - 1
@@ -208,13 +109,13 @@ function balanceEq (chemStr) {
         for (let i = 0; i < m.leftLen + m.rightLen; i++) {
           ratio = rst[i].round(0)
           if (i < m.leftLen) {
-            m.leftEqArrColor[i] = $.c.y(ratio) + m.leftEqArr[i]
-            m.leftEqArr[i] = (ratio === 1 ? '' : ratio) + m.leftEqArr[i]
+            m.leftEqArrColor[i] = $.c.y(ratio) + m.leftEqArrOri[i]
+            m.leftEqArr[i] = (ratio === 1 ? '' : ratio) + m.leftEqArrOri[i]
           } else {
             m.rightEqArrColor[i - m.leftLen] =
-              $.c.y(ratio) + m.rightEqArr[i - m.leftLen]
+              $.c.y(ratio) + m.rightEqArrOri[i - m.leftLen]
             m.rightEqArr[i - m.leftLen] =
-              (ratio === 1 ? '' : ratio) + m.rightEqArr[i - m.leftLen]
+              (ratio === 1 ? '' : ratio) + m.rightEqArrOri[i - m.leftLen]
           }
         }
         let outChemColorStr =
