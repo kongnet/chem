@@ -1,3 +1,8 @@
+## [0.1.17](https://github.com/kongnet/chem/compare/v0.1.16...v0.1.17) (2024-09-08)
+
+
+
+
 ## [0.1.16](https://github.com/kongnet/chem/compare/v0.1.15...v0.1.16) (2024-09-08)
 
 

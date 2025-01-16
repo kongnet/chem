@@ -93,4 +93,5 @@ for (let i = 0; i < chemTestArr.length; i += 3) {
 }
 
 console.log(balanceEq('P+O2=P2O5'))
-console.log(balanceEq('Fe2S3O12+NaOH=Na2SO4+FeO3H3'))
+console.log(balanceEq('Ca(No3)2 + K3PO4 = Ca3(PO4)2 + KNo3'))
+console.log(balanceEq('NH3 + CuO → H2O + Cu + N2'))

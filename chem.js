@@ -14,7 +14,7 @@ function expandElm (elm) {
     .replace(/\(|\)/g, '') // remove '(' ,')'
 }
 function chemEq2Matrix (chemStr) {
-  let eqArr = chemStr.replace(/ +/g, '').split(/(\->|=|\-)/g)
+  let eqArr = chemStr.replace(/ +/g, '').split(/(\->|=|\-|→)/g)
   // console.log(eqArr)
   let leftEqArrOri = eqArr[0].split('+') // unexpand element
   let rightEqArrOri = eqArr[2].split('+')
