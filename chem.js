@@ -11,7 +11,7 @@ function expandElm (elm) {
       count = +count || 1 // default 1
       return group.repeat(count)
     })
-    .replace(/\(|\)/g, '') // remove '(' ,')'
+    .replace(/\(|\)/g, '')
 }
 function chemEq2Matrix (chemStr) {
   let eqArr = chemStr.replace(/ +/g, '').split(/(\->|=|\-|→)/g)
@@ -132,6 +132,7 @@ function balanceEq (chemStr) {
     return { oriChem: chemStr, outChem: '', outChemCol: '' }
   } catch (e) {
     //TODO: 增加错误原因
+    console.log('errrrrr')
     return { oriChem: chemStr, outChem: '', outChemCol: '' }
   }
 }

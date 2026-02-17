@@ -5,7 +5,7 @@
   "main": "chem.js",
   "scripts": {
     "test": "mocha chem_test.js",
-    "cov": "nyc --reporter html --reporter text npm test",
+    "cov": "nyc --reporter html --reporter text --check-coverage --lines 100 npm test",
     "cz": "conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
     "push": "npm version patch && npm publish . && git push"
   },
@@ -33,5 +33,10 @@
     "commitizen": {
       "path": "./node_modules/cz-jt"
     }
+  },
+  "nyc": {
+    "exclude": [
+      "chem_test.js"
+    ]
   }
 }

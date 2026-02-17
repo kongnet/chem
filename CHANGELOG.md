@@ -1,3 +1,12 @@
+## [0.1.18](https://github.com/kongnet/chem/compare/v0.1.17...v0.1.18) (2025-01-16)
+
+
+### :memo:
+
+* add LICENSE ([e45c2c0](https://github.com/kongnet/chem/commit/e45c2c047d38798392b36b363d8ab6beadd70d7b))
+
+
+
 ## [0.1.17](https://github.com/kongnet/chem/compare/v0.1.16...v0.1.17) (2024-09-08)
 
 
@@ -36,18 +45,18 @@
 
 ### :sparkles:
 
-* 做一些容错 ([3b76993](https://github.com/kongnet/chem/commit/3b76993a826b0b1b1f9222cc95c9de5bd2b7ec79))
 * Init ([644e0b6](https://github.com/kongnet/chem/commit/644e0b67bad07b877145b2c2b93e3f6b68b2fd1d))
+* 做一些容错 ([3b76993](https://github.com/kongnet/chem/commit/3b76993a826b0b1b1f9222cc95c9de5bd2b7ec79))
 
 ### :white_check_mark:
 
-* 覆盖率100% ([92a1379](https://github.com/kongnet/chem/commit/92a137918f8630c606473ea1fadb161398409607))
 * 增加代码覆盖100% ([97bdc2f](https://github.com/kongnet/chem/commit/97bdc2fb8b48f45d4946f4b5e062ff5502f482cb))
+* 覆盖率100% ([92a1379](https://github.com/kongnet/chem/commit/92a137918f8630c606473ea1fadb161398409607))
 
 ### :zap:
 
-* 矩阵转置和乘法改为meeko核心库 ([3983401](https://github.com/kongnet/chem/commit/398340167c860eeed7f252249af1e89494985449))
 * 增强 ([47aabb1](https://github.com/kongnet/chem/commit/47aabb1707ff42096360e04b148197542909b8a4))
+* 矩阵转置和乘法改为meeko核心库 ([3983401](https://github.com/kongnet/chem/commit/398340167c860eeed7f252249af1e89494985449))
 
 
 

@@ -74,6 +74,14 @@ const chemTestArr = [
   '',
   'A=A',
   '',
+  '',
+  'CO2+H2O=O2+C6H12O6',
+  '6CO2+6H2O=6O2+C6H12O6',
+  '',
+  'H2+O2=H2O+Cl',
+  '2H2 + O2 = 2H2O + 0Cl',
+  '',
+  '',
   ''
 ]
 
@@ -91,6 +99,41 @@ for (let i = 0; i < chemTestArr.length; i += 3) {
     })
   })
 }
+
+describe(`no solution case`, function () {
+  it(`should return empty when no solution found`, function () {
+    const $ = require('meeko')
+    const originalGaussian = $.math.gaussian
+    $.math.gaussian = function (matrix) {
+      return [0.5, 0.5, 0.5]
+    }
+    const result = balanceEq('H2+O2=H2O')
+    $.math.gaussian = originalGaussian
+    assert.strictEqual(result.outChem, '')
+  })
+})
+
+describe(`expandElm with parentheses`, function () {
+  it(`should handle (OH) without number`, function () {
+    const result = balanceEq('Ca(OH)=CaO+H2')
+    assert.ok(result.outChem)
+  })
+  it(`should handle (OH)2 with number`, function () {
+    const result = balanceEq('Ca(OH)2=CaO+H2O')
+    assert.ok(result.outChem)
+  })
+})
+
+describe(`over-determined equation`, function () {
+  it(`should handle over-determined matrix`, function () {
+    const result = balanceEq('H2=O2')
+    assert.ok(result.outChem)
+  })
+  it(`should handle H=H case`, function () {
+    const result = balanceEq('H=H')
+    assert.ok(result.outChem)
+  })
+})
 
 console.log(balanceEq('P+O2=P2O5'))
 console.log(balanceEq('Ca(No3)2 + K3PO4 = Ca3(PO4)2 + KNo3'))
